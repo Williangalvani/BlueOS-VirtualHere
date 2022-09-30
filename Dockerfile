@@ -6,7 +6,13 @@ RUN wget https://virtualhere.com/sites/default/files/usbserver/vhusbdarm
 RUN chmod +x vhusbdarm
 
 LABEL version="1.0"
-LABEL permissions="--net=host --privileged"
+LABEL permissions '\
+{\
+    "network_mode": "host"\
+}'
+LABEL reasonings = '{\
+    "network_mode": "Default option"\
+}'
 LABEL requirements="core > 1"
 
 ENTRYPOINT ./vhusbdarm
