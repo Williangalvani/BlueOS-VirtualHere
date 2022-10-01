@@ -8,11 +8,9 @@ RUN chmod +x vhusbdarm
 LABEL version="1.0"
 LABEL permissions '\
 {\
-    "network_mode": "host"\
+    "NetworkMode": "host",\
+    "Privileged": true\
 }'
-LABEL reasonings = '{\
-    "network_mode": "Default option"\
-}'
-LABEL requirements="core > 1"
 
+LABEL requirements="core >= 1"
 ENTRYPOINT ./vhusbdarm
