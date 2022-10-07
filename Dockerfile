@@ -11,6 +11,20 @@ LABEL permissions '\
     "NetworkMode": "host",\
     "Privileged": true\
 }'
-
+LABEL authors '[\
+    {\
+        "name": "Willian Galvani",\
+        "email": "willian@bluerobotics.com"\
+    }\
+]'
+LABEL docs ''
+LABEL company '{\
+        "about": "",\
+        "name": "Blue Robotics",\
+        "email": "support@bluerobotics.com"\
+    }'
+LABEL readme 'https://raw.githubusercontent.com/Williangalvani/BlueOS-VirtualHere/{tag}/Readme.md'
+LABEL website 'https://github.com/Williangalvani/BlueOS-VirtualHere'
+LABEL support 'https://github.com/Williangalvani/BlueOS-VirtualHere/issues'
 LABEL requirements="core >= 1"
 ENTRYPOINT ./vhusbdarm
