@@ -9,7 +9,9 @@ LABEL version="1.0"
 LABEL permissions '\
 {\
     "NetworkMode": "host",\
-    "Privileged": true\
+    ,"HostConfig":{\
+        "Privileged": true,\
+    }\
 }'
 LABEL authors '[\
     {\
