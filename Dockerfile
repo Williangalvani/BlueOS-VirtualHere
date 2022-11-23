@@ -8,10 +8,10 @@ RUN chmod +x vhusbdarm
 LABEL version="1.0.1"
 LABEL permissions '\
 {\
+  "NetworkMode": "host",\
+  "HostConfig": {\
+    "Privileged": true,\
     "NetworkMode": "host",\
-    ,"HostConfig":{\
-        "Privileged": true,\
-    }\
 }'
 LABEL authors '[\
     {\
