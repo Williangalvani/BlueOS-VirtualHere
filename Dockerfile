@@ -11,7 +11,8 @@ LABEL permissions='\
   "NetworkMode": "host",\
   "HostConfig": {\
     "Privileged": true,\
-    "NetworkMode": "host",\
+    "NetworkMode": "host"\
+  }\
 }'
 LABEL authors='[\
     {\
