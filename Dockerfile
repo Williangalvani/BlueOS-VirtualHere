@@ -11,6 +11,8 @@ RUN case "$(uname -m)" in \
         wget -O vhusbd https://virtualhere.com/sites/default/files/usbserver/vhusbdarm64 ;; \
     armv7l|armhf) \
         wget -O vhusbd https://virtualhere.com/sites/default/files/usbserver/vhusbdarm ;; \
+    x86_64) \
+        wget -O vhusbd https://virtualhere.com/sites/default/files/usbserver/vhusbdx86_64 ;; \
     *) \
         echo "Unsupported architecture: $(uname -m)" && exit 1 ;; \
     esac && \
