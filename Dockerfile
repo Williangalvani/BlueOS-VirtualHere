@@ -6,12 +6,21 @@ RUN apt update && apt install -y --no-install-recommends \
 
 RUN mkdir /virtualhere
 WORKDIR /virtualhere
-RUN wget https://virtualhere.com/sites/default/files/usbserver/vhusbdarm
+
+# Download the appropriate binary based on architecture
+RUN case "$(uname -m)" in \
+    aarch64) \
+        wget -O vhusbd https://virtualhere.com/sites/default/files/usbserver/vhusbdarm64 ;; \
+    armv7l|armhf) \
+        wget -O vhusbd https://virtualhere.com/sites/default/files/usbserver/vhusbdarm ;; \
+    *) \
+        echo "Unsupported architecture: $(uname -m)" && exit 1 ;; \
+    esac && \
+    chmod +x vhusbd
+
 RUN echo $PWD
 
-RUN chmod +x vhusbdarm
-
-LABEL version="1.0.4"
+LABEL version="1.0.5"
 LABEL permissions='\
 {\
   "NetworkMode": "host",\
@@ -44,4 +53,4 @@ LABEL links='{\
         "support": "https://github.com/Williangalvani/BlueOS-VirtualHere/issues"\
     }'
 LABEL requirements="core >= 1.1"
-ENTRYPOINT ["/virtualhere/vhusbdarm", "-c", "/virtualhere/config/config.ini" ]
+ENTRYPOINT ["/virtualhere/vhusbd", "-c", "/virtualhere/config/config.ini" ]
