@@ -1,8 +1,6 @@
-from python:3.9-slim-bullseye
+FROM python:3.9-alpine
 
-RUN apt update && apt install -y --no-install-recommends \
-    wget \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache wget
 
 RUN mkdir /virtualhere
 WORKDIR /virtualhere
