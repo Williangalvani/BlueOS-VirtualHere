@@ -20,7 +20,7 @@ RUN case "$(uname -m)" in \
 
 RUN echo $PWD
 
-LABEL version="1.0.5"
+LABEL version="1.0.6"
 LABEL permissions='\
 {\
   "NetworkMode": "host",\
