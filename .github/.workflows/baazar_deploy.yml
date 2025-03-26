@@ -1,0 +1,23 @@
+
+# things needed for this action to work:
+# - a personal access token (PAT) for blueos registry
+# - ECR_REGISTRY
+# - ECR_REPOSITORY
+
+name: Build and deploy extension to Bazaar
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Publish Extension in BlueOS CLoud
+        uses: bluerobotics/blueos-cloud-action@0.0.1
+        with:
+          BCLOUD_PAT: ${{secrets.BCLOUD_PAT}}
+          PLATFORMS: linux/arm/v7,linux/arm64,linux/amd64
+          EXTENSION: 6355f288-76a9-4705-b0e9-1ece6c4271aa
